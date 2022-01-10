@@ -2,4 +2,4 @@
 
 ## Login
 
-<img width="553" alt="Bankey01" src="https://user-images.githubusercontent.com/56388642/148844665-cb0ef6ea-c58f-461e-9c21-3aceca874779.png">
+![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey01.imageset/Bankey01.png)
