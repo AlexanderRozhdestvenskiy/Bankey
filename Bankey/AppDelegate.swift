@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
-        window?.rootViewController = LoginViewController()
+        window?.rootViewController = OnboardContainerVC()
         
         return true
     }
