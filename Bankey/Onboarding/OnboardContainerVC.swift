@@ -7,19 +7,36 @@
 
 import UIKit
 
+protocol OnboadingContainerViewControllerDelegate: AnyObject {
+    func didFinishOnboarding()
+}
+
 class OnboardContainerVC: UIViewController {
+    
+    weak var delegate: OnboadingContainerViewControllerDelegate?
     
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
-    var currentVC: UIViewController
+    var currentVC: UIViewController {
+        didSet {
+            guard let index = pages.firstIndex(of: currentVC) else { return }
+            nextButton.isHidden = index == pages.count - 1
+            backButton.isHidden = index == 0
+            doneButton.isHidden = !(index == pages.count - 1)
+        }
+    }
+    
     let closeButton = UIButton(type: .system)
+    let nextButton = UIButton(type: .system)
+    let backButton = UIButton(type: .system)
+    let doneButton = UIButton(type: .system)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardVC(heroImageName: "delorean", titleText: "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in the 80s.")
-        let page2 = OnboardVC(heroImageName: "world", titleText: "Move your money around the world quickly and securely.")
-        let page3 = OnboardVC(heroImageName: "thumbs", titleText: "Learn more at www.bankey.com.")
+        let page1 = OnboardVC(heroImageName: "delorean", titleText: "БанкПлюс быстрее, проще в использовании и имеет совершенно новый вид.")
+        let page2 = OnboardVC(heroImageName: "world", titleText: "Используйте свои деньги по всему миру быстро и безопасно.")
+        let page3 = OnboardVC(heroImageName: "thumbs", titleText: "Узнайте больше на www.bankplus.com")
         
         pages.append(page1)
         pages.append(page2)
@@ -62,16 +79,40 @@ class OnboardContainerVC: UIViewController {
     }
     
     private func style() {
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.setTitle("Close", for: [])
-        closeButton.addTarget(self, action: #selector(buttonTapped), for: .primaryActionTriggered)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.setTitle("Вперед", for: [])
+        nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
         
-        view.addSubview(closeButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setTitle("Назад", for: [])
+        backButton.addTarget(self, action: #selector(backTapped), for: .primaryActionTriggered)
+        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setTitle("Закрыть", for: [])
+        closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
+        
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.setTitle("Готово", for: [])
+        doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
     }
     
     private func layout() {
+        view.addSubview(nextButton)
+        view.addSubview(backButton)
+        view.addSubview(closeButton)
+        view.addSubview(doneButton)
+        
+        view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2).isActive = true
+        view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 4).isActive = true
+        
+        backButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2).isActive = true
+        view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: backButton.bottomAnchor, multiplier: 4).isActive = true
+        
         closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2).isActive = true
         closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2).isActive = true
+        
+        view.trailingAnchor.constraint(equalToSystemSpacingAfter: doneButton.trailingAnchor, multiplier: 2).isActive = true
+        view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: doneButton.bottomAnchor, multiplier: 4).isActive = true
     }
 }
 
@@ -107,7 +148,22 @@ extension OnboardContainerVC: UIPageViewControllerDataSource {
 }
 
 extension OnboardContainerVC {
-    @objc private func buttonTapped(sender: UIButton) {
-        print("Close")
+    
+    @objc private func nextTapped(_ sender: UIButton) {
+        guard let nextVC = getNextViewController(from: currentVC) else { return }
+        pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
+    }
+    
+    @objc private func backTapped(_ sender: UIButton) {
+        guard let previousVC = getPreviousViewController(from: currentVC) else { return }
+        pageViewController.setViewControllers([previousVC], direction: .reverse, animated: true, completion: nil)
+    }
+    
+    @objc private func closeTapped(_ sender: UIButton) {
+        delegate?.didFinishOnboarding()
+    }
+    
+    @objc private func doneTapped(_ sender: UIButton) {
+        delegate?.didFinishOnboarding()
     }
 }
