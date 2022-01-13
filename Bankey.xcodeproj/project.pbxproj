@@ -75,6 +75,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		898007AD2790D3CB00B2662B /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				89B83081278B4F910004456A /* Info.plist */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
 		89B83067278B4F8E0004456A = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +107,8 @@
 				8975C4BA278C6472004528B8 /* Onboarding */,
 				89B83088278B582F0004456A /* Login */,
 				8931ED87278DAC770060E8D1 /* Utilites */,
+				898007AD2790D3CB00B2662B /* Info */,
 				89B83087278B57AF0004456A /* Files */,
-				89B83081278B4F910004456A /* Info.plist */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
