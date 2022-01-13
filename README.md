@@ -12,10 +12,3 @@
 
 ![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey05.imageset/Bankey05.png)
 
-
-´´´swift
-import UIKit
-
-
-
-´´´

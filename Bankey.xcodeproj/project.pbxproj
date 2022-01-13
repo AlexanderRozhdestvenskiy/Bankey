@@ -51,8 +51,8 @@
 		890032F4278EF6A60098661F /* Origin */ = {
 			isa = PBXGroup;
 			children = (
-				890032F2278EEC790098661F /* MainViewController.swift */,
 				89B83073278B4F8E0004456A /* AppDelegate.swift */,
+				890032F2278EEC790098661F /* MainViewController.swift */,
 			);
 			path = Origin;
 			sourceTree = "<group>";
