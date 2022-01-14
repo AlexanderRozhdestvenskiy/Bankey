@@ -7,14 +7,6 @@
 
 import UIKit
 
-protocol LogoutDelegate: AnyObject {
-    func didLogout()
-}
-
-protocol LoginViewControllerDelegate: AnyObject {
-    func didLogin()
-}
-
 class LoginViewController: UIViewController {
     
     let titleImage = UIImageView()
@@ -54,11 +46,11 @@ extension LoginViewController {
     private func style() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 16
         
         titleImage.translatesAutoresizingMaskIntoConstraints = false
         titleImage.contentMode  = .scaleAspectFit
-        titleImage.image = UIImage(named: "ImageIcon")
+        titleImage.image = UIImage(named: "imageTitle")
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.textAlignment = .center
@@ -91,13 +83,13 @@ extension LoginViewController {
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
-        loginView.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 3).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        loginView.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 2).isActive = true
+        stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1).isActive = true
+        stackView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.trailingAnchor, multiplier: 1).isActive = true
         
         loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1).isActive = true
-        view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1).isActive = true
+        loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1).isActive = true
+        view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1).isActive = true
         
         signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2).isActive = true
         signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor).isActive = true
@@ -118,7 +110,7 @@ extension LoginViewController {
     
     private func login() {
         guard let username = username, let password = password else {
-            assertionFailure("Username / password should never be nil")
+            assertionFailure("Неправильный логин/пароль")
             return
         }
         
@@ -130,7 +122,7 @@ extension LoginViewController {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
         } else {
-            configureView(withMessage: "Incorrect username or password")
+            configureView(withMessage: "Неправильный логин или пароль")
         }
     }
     
