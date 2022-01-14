@@ -60,7 +60,7 @@ class OnboardContainerVC: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .systemPink
+        view.backgroundColor = appColor
         
         addChild(pageViewController)
         view.addSubview(pageViewController.view)

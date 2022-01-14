@@ -17,8 +17,11 @@ protocol LoginViewControllerDelegate: AnyObject {
 
 class LoginViewController: UIViewController {
     
-    let titleLabel = UILabel()
+    let titleImage = UIImageView()
     let subtitleLabel = UILabel()
+    
+    let stackView = UIStackView()
+    
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
@@ -49,11 +52,13 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func style() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        titleLabel.adjustsFontForContentSizeCategory = true
-        titleLabel.text = "БанкПлюс"
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        
+        titleImage.translatesAutoresizingMaskIntoConstraints = false
+        titleImage.contentMode  = .scaleAspectFit
+        titleImage.image = UIImage(named: "ImageIcon")
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.textAlignment = .center
@@ -78,18 +83,17 @@ extension LoginViewController {
     }
     
     private func layout() {
-        view.addSubview(titleLabel)
-        view.addSubview(subtitleLabel)
+        stackView.addArrangedSubview(titleImage)
+        stackView.addArrangedSubview(subtitleLabel)
+        
+        view.addSubview(stackView)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
-        subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3).isActive = true
-        subtitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor).isActive = true
-        subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor).isActive = true
+        loginView.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 3).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
         loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1).isActive = true
