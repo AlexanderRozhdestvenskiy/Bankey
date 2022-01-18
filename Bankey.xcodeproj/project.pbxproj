@@ -10,6 +10,7 @@
 		890032F1278EE8A60098661F /* UIVC+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890032F0278EE8A60098661F /* UIVC+Utils.swift */; };
 		890032F3278EEC790098661F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890032F2278EEC790098661F /* MainViewController.swift */; };
 		890F0CEF2791E7AB00366F47 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F0CEE2791E7AB00366F47 /* LoginProtocol.swift */; };
+		891D4C37279737DA005D5A8B /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891D4C36279737DA005D5A8B /* AccountSummaryViewController.swift */; };
 		8931ED86278DA0950060E8D1 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931ED85278DA0950060E8D1 /* DummyViewController.swift */; };
 		8931ED89278DACAC0060E8D1 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931ED88278DACAC0060E8D1 /* LocalState.swift */; };
 		8975C4BC278C64ED004528B8 /* OnboardContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975C4BB278C64ED004528B8 /* OnboardContainerVC.swift */; };
@@ -25,6 +26,7 @@
 		890032F0278EE8A60098661F /* UIVC+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Utils.swift"; sourceTree = "<group>"; };
 		890032F2278EEC790098661F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		890F0CEE2791E7AB00366F47 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
+		891D4C36279737DA005D5A8B /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
 		8931ED85278DA0950060E8D1 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		8931ED88278DACAC0060E8D1 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		8975C4BB278C64ED004528B8 /* OnboardContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContainerVC.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 				890032F2278EEC790098661F /* MainViewController.swift */,
 			);
 			path = Origin;
+			sourceTree = "<group>";
+		};
+		891D4C35279736FC005D5A8B /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				891D4C36279737DA005D5A8B /* AccountSummaryViewController.swift */,
+			);
+			path = AccountSummary;
 			sourceTree = "<group>";
 		};
 		8931ED87278DAC770060E8D1 /* Utilites */ = {
@@ -106,11 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				890032F4278EF6A60098661F /* Origin */,
-				8975C4BA278C6472004528B8 /* Onboarding */,
 				89B83088278B582F0004456A /* Login */,
+				8975C4BA278C6472004528B8 /* Onboarding */,
+				891D4C35279736FC005D5A8B /* AccountSummary */,
 				8931ED87278DAC770060E8D1 /* Utilites */,
-				898007AD2790D3CB00B2662B /* Info */,
 				89B83087278B57AF0004456A /* Files */,
+				898007AD2790D3CB00B2662B /* Info */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
@@ -118,8 +129,8 @@
 		89B83087278B57AF0004456A /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				89B8307E278B4F910004456A /* LaunchScreen.storyboard */,
 				89B8307C278B4F910004456A /* Assets.xcassets */,
+				89B8307E278B4F910004456A /* LaunchScreen.storyboard */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -213,6 +224,7 @@
 				89B83074278B4F8E0004456A /* AppDelegate.swift in Sources */,
 				890032F3278EEC790098661F /* MainViewController.swift in Sources */,
 				890F0CEF2791E7AB00366F47 /* LoginProtocol.swift in Sources */,
+				891D4C37279737DA005D5A8B /* AccountSummaryViewController.swift in Sources */,
 				890032F1278EE8A60098661F /* UIVC+Utils.swift in Sources */,
 				8975C4BC278C64ED004528B8 /* OnboardContainerVC.swift in Sources */,
 			);
