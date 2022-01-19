@@ -9,32 +9,56 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
-    let stackView = UIStackView()
-    let label = UILabel()
+    let banks = [
+        "Сбер",
+        "ВТБ",
+        "Альфа",
+        "Тинькофф"
+    ]
+    
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        style()
-        layout()
+        setup()
+    }
+}
+
+extension AccountSummaryViewController {
+    private func setup() {
+        setupTableView()
     }
     
-    func style() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Добро пожаловать!"
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+}
+
+extension AccountSummaryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.textLabel?.text = banks[indexPath.row]
+        return cell
     }
     
-    func layout() {
-        stackView.addArrangedSubview(label)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return banks.count
+    }
+}
+
+extension AccountSummaryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        view.addSubview(stackView)
-        
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }
