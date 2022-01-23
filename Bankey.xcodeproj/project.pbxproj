@@ -69,8 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				891D4C36279737DA005D5A8B /* AccountSummaryViewController.swift */,
-				89E85C9A279B2095008FF159 /* AccountSummaryHeaderView.swift */,
-				89E85C9C279B20F6008FF159 /* AccountSummaryHeaderView.xib */,
+				89B23951279D5F95006842BD /* Cell */,
+				89B23950279D5F75006842BD /* Header */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -99,6 +99,22 @@
 				89B83081278B4F910004456A /* Info.plist */,
 			);
 			name = Info;
+			sourceTree = "<group>";
+		};
+		89B23950279D5F75006842BD /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				89E85C9A279B2095008FF159 /* AccountSummaryHeaderView.swift */,
+				89E85C9C279B20F6008FF159 /* AccountSummaryHeaderView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		89B23951279D5F95006842BD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		89B83067278B4F8E0004456A = {
