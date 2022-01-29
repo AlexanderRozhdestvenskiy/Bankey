@@ -9,6 +9,24 @@ import UIKit
 
 class AccountSummaryCell: UITableViewCell {
     
+    enum AccountType: String {
+        case Banking = "Сбережения"
+        case CreditCard = "Кредитные карты"
+        case Investment = "Инвестиции"
+    }
+    
+    struct ViewModel {
+        let accountType: AccountType
+        let accountName: String
+//        let balance: Decimal
+//
+//        var balanceAsAttributedString: NSAttributedString {
+//            return CurrencyFormatter().makeAttributedCurrency(balance)
+//        }
+    }
+    
+    let viewModel: ViewModel? = nil
+    
     let typeLabel = UILabel()
     let underLine = UIView()
     let nameLabel = UILabel()
@@ -104,7 +122,7 @@ extension AccountSummaryCell {
         let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
         let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
         
-        let rootString = NSMutableAttributedString(string: "$", attributes: dollarSignAttributes)
+        let rootString = NSMutableAttributedString(string: "₽", attributes: dollarSignAttributes)
         let dollarString = NSAttributedString(string: dollars, attributes: dollarAttributes)
         let centString = NSAttributedString(string: cents, attributes: centAttributes)
         
@@ -112,5 +130,26 @@ extension AccountSummaryCell {
         rootString.append(centString)
         
         return rootString
+    }
+}
+
+extension AccountSummaryCell {
+    func configure(with vm: ViewModel) {
+        
+        typeLabel.text = vm.accountType.rawValue
+        nameLabel.text = vm.accountName
+//        balanceAmountLabel.attributedText = vm.balanceAsAttributedString
+        
+        switch vm.accountType {
+        case .Banking:
+            underLine.backgroundColor = .systemMint
+            balanceLabel.text = "Общий баланс"
+        case .CreditCard:
+            underLine.backgroundColor = .systemOrange
+            balanceLabel.text = "Баланс"
+        case .Investment:
+            underLine.backgroundColor = .systemPurple
+            balanceLabel.text = "Сумма"
+        }
     }
 }
