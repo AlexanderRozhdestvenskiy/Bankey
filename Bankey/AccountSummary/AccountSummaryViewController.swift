@@ -30,6 +30,8 @@ extension AccountSummaryViewController {
     }
     
     private func setupTableView() {
+        tableView.backgroundColor = appColor
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -86,7 +88,7 @@ extension AccountSummaryViewController {
         let visa = ViewModel(accountType: .CreditCard, accountName: "Visa", balance: 341555.32)
         let masterCard = ViewModel(accountType: .CreditCard, accountName: "Master Card", balance: 234756.79)
         let investment1 = ViewModel(accountType: .Investment, accountName: "Инвестиции", balance: 15000.00)
-        let investment2 = ViewModel(accountType: .Investment, accountName: "Брокер", balance: 20000.00)
+        let investment2 = ViewModel(accountType: .Investment, accountName: "Брокер", balance: 0)
         
         accounts.append(savings)
         accounts.append(chequing)

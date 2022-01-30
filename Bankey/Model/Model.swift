@@ -5,7 +5,9 @@
 //  Created by Alexander Rozhdestvenskiy on 30.01.2022.
 //
 
-import Foundation
+import UIKit
+
+let appColor: UIColor = .systemTeal
 
 struct Profile {
     let firstName: String
@@ -22,4 +24,8 @@ struct ViewModel {
     let accountType: AccountType
     let accountName: String
     let balance: Decimal
+    
+    var balanceAsAttributedString: NSAttributedString {
+        return CurrencyFormatter().makeAttributedCurrency(balance)
+    }
 }
