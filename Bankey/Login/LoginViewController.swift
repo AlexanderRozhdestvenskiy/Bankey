@@ -57,7 +57,7 @@ extension LoginViewController {
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         subtitleLabel.adjustsFontForContentSizeCategory = true
         subtitleLabel.numberOfLines = 0
-        subtitleLabel.text = "Ваш премиальный ресурс для всех банковских услуг!"
+        subtitleLabel.text = "Ваше единственное приложение для всех банковских услуг!"
         
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -83,21 +83,21 @@ extension LoginViewController {
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
-        loginView.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 2).isActive = true
-        stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1).isActive = true
-        stackView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.trailingAnchor, multiplier: 1).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: loginView.topAnchor, constant: -16).isActive = true
         
+        loginView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
+        loginView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
         loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1).isActive = true
-        view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1).isActive = true
         
-        signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2).isActive = true
+        signInButton.topAnchor.constraint(equalTo: loginView.bottomAnchor, constant: 16).isActive = true
         signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor).isActive = true
         signInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor).isActive = true
         
         errorMessageLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor).isActive = true
         errorMessageLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor).isActive = true
-        errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 1).isActive = true
+        errorMessageLabel.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 16).isActive = true
     }
 }
 

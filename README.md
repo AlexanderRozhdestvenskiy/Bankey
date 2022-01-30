@@ -1,14 +1,17 @@
 # БанкПлюс
 
-## Экран приветствия
+## Login
 
-![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey01.imageset/Bankey01.png)
+![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Login.imageset/Login.png)
 
-![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey02.imageset/Bankey02.png)
+## Onboarding
 
-![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey03.imageset/Bankey03.png)
+![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Onboarding1.imageset/Onboarding1.png)
 
-![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey04.imageset/Bankey04.png)
+![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Onboarding2.imageset/Onboarding2.png)
 
-![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Bankey05.imageset/Bankey05.png)
+![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Onboarding3.imageset/Onboarding3.png)
 
+## Main View
+
+![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Main.imageset/Main.png)
