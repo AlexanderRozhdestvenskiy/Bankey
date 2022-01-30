@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = mainViewController
         
-        mainViewController.selectedIndex = 1
+        mainViewController.selectedIndex = 0
         
         return true
     }

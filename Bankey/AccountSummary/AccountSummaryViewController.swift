@@ -9,13 +9,8 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
-    struct Profile {
-        let firstName: String
-        let lastName: String
-    }
-    
     var profile: Profile?
-    var accounts: [AccountSummaryCell.ViewModel] = []
+    var accounts: [ViewModel] = []
     
     var headerView = AccountSummaryHeaderView(frame: .zero)
     var tableView = UITableView()
@@ -86,15 +81,18 @@ extension AccountSummaryViewController: UITableViewDelegate {
 }
 extension AccountSummaryViewController {
     private func fetchData() {
-        let savings = AccountSummaryCell.ViewModel(accountType: .Banking,
-                                                   accountName: "Основные сбережения")
-        let visa = AccountSummaryCell.ViewModel(accountType: .CreditCard,
-                                                accountName: "Карта Visa")
-        let investment = AccountSummaryCell.ViewModel(accountType: .Investment,
-                                                      accountName: "Без учета налогов")
+        let savings = ViewModel(accountType: .Banking, accountName: "Oбщий счет", balance: 929345.34)
+        let chequing = ViewModel(accountType: .Banking, accountName: "Без учета налогов", balance: 23758.44)
+        let visa = ViewModel(accountType: .CreditCard, accountName: "Visa", balance: 341555.32)
+        let masterCard = ViewModel(accountType: .CreditCard, accountName: "Master Card", balance: 234756.79)
+        let investment1 = ViewModel(accountType: .Investment, accountName: "Инвестиции", balance: 15000.00)
+        let investment2 = ViewModel(accountType: .Investment, accountName: "Брокер", balance: 20000.00)
         
         accounts.append(savings)
+        accounts.append(chequing)
         accounts.append(visa)
-        accounts.append(investment)
+        accounts.append(masterCard)
+        accounts.append(investment1)
+        accounts.append(investment2)
     }
 }

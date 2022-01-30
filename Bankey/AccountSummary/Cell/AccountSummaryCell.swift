@@ -9,22 +9,6 @@ import UIKit
 
 class AccountSummaryCell: UITableViewCell {
     
-    enum AccountType: String {
-        case Banking = "Сбережения"
-        case CreditCard = "Кредитные карты"
-        case Investment = "Инвестиции"
-    }
-    
-    struct ViewModel {
-        let accountType: AccountType
-        let accountName: String
-//        let balance: Decimal
-//
-//        var balanceAsAttributedString: NSAttributedString {
-//            return CurrencyFormatter().makeAttributedCurrency(balance)
-//        }
-    }
-    
     let viewModel: ViewModel? = nil
     
     let typeLabel = UILabel()
