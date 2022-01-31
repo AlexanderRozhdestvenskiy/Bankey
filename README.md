@@ -1,5 +1,13 @@
 # БанкПлюс
 
+## Описание
+
+При создании приложения был использован следующий стек:
+
+1. UIPageViewController
+2. UIViewController
+3. UITabBarController
+
 ## Login
 
 ![alt text](https://github.com/AlexanderRozhdestvenskiy/Bankey/blob/main/Bankey/Files/Assets.xcassets/Screen/Login.imageset/Login.png)
