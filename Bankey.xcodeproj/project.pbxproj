@@ -13,8 +13,8 @@
 		891D4C37279737DA005D5A8B /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891D4C36279737DA005D5A8B /* AccountSummaryViewController.swift */; };
 		8931ED86278DA0950060E8D1 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931ED85278DA0950060E8D1 /* DummyViewController.swift */; };
 		8931ED89278DACAC0060E8D1 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931ED88278DACAC0060E8D1 /* LocalState.swift */; };
-		893F20B227A724C200B28DDC /* BankeyUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893F20B127A724C200B28DDC /* BankeyUnitTests.swift */; };
 		894C498F279F342E005B6121 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C498E279F342E005B6121 /* AccountSummaryCell.swift */; };
+		8955947E27AE9B92009F7DD2 /* CurrensyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955947D27AE9B91009F7DD2 /* CurrensyFormatterTests.swift */; };
 		8975C4BC278C64ED004528B8 /* OnboardContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975C4BB278C64ED004528B8 /* OnboardContainerVC.swift */; };
 		8975C4BE278C77B7004528B8 /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975C4BD278C77B7004528B8 /* OnboardVC.swift */; };
 		898EDE9C27A69D6F00D7309E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EDE9B27A69D6F00D7309E /* Model.swift */; };
@@ -47,8 +47,8 @@
 		8931ED85278DA0950060E8D1 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		8931ED88278DACAC0060E8D1 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		893F20AF27A724C200B28DDC /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		893F20B127A724C200B28DDC /* BankeyUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankeyUnitTests.swift; sourceTree = "<group>"; };
 		894C498E279F342E005B6121 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
+		8955947D27AE9B91009F7DD2 /* CurrensyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrensyFormatterTests.swift; sourceTree = "<group>"; };
 		8975C4BB278C64ED004528B8 /* OnboardContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContainerVC.swift; sourceTree = "<group>"; };
 		8975C4BD278C77B7004528B8 /* OnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
 		898EDE9B27A69D6F00D7309E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		893F20B027A724C200B28DDC /* BankeyUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				893F20B127A724C200B28DDC /* BankeyUnitTests.swift */,
+				8955947D27AE9B91009F7DD2 /* CurrensyFormatterTests.swift */,
 			);
 			path = BankeyUnitTests;
 			sourceTree = "<group>";
@@ -268,6 +268,7 @@
 				TargetAttributes = {
 					893F20AE27A724C200B28DDC = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 						TestTargetID = 89B8306F278B4F8E0004456A;
 					};
 					89B8306F278B4F8E0004456A = {
@@ -319,7 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				893F20B227A724C200B28DDC /* BankeyUnitTests.swift in Sources */,
+				8955947E27AE9B92009F7DD2 /* CurrensyFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,14 +373,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P5BAPBZ387;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evilroot.BankeyUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bankey.app/Bankey";
@@ -390,10 +398,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P5BAPBZ387;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evilroot.BankeyUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
