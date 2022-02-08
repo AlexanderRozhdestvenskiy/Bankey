@@ -112,6 +112,6 @@ extension AccountSummaryViewController {
 
 extension AccountSummaryViewController {
     @objc private func logoutTapped(_ sender: UIBarButtonItem) {
-        
+        NotificationCenter.default.post(name: .logout, object: nil)
     }
 }
