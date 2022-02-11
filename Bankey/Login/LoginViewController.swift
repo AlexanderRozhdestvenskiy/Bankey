@@ -29,11 +29,12 @@ class LoginViewController: UIViewController {
     }
     
     // Animation
-    var leadingEdgeOnScreen: CGFloat = 16
+    var leadingEdgeOnScreen: CGFloat = 8
     var leadingEdgeOffScreen: CGFloat = -1000
     
-    var titleLeadingAnchor: NSLayoutConstraint?
+    var stackLeadingAnchor: NSLayoutConstraint?
 
+    // LifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,8 +42,15 @@ class LoginViewController: UIViewController {
         layout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        animate()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         signInButton.configuration?.showsActivityIndicator = false
     }
 }
@@ -89,8 +97,10 @@ extension LoginViewController {
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
-        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+        stackLeadingAnchor = stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        stackLeadingAnchor?.isActive = true
+        
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         stackView.bottomAnchor.constraint(equalTo: loginView.topAnchor, constant: -16).isActive = true
         
         loginView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
@@ -135,5 +145,18 @@ extension LoginViewController {
     private func configureView(withMessage message: String) {
         errorMessageLabel.isHidden = false
         errorMessageLabel.text = message
+    }
+}
+
+    // MARK: - Animations
+
+extension LoginViewController {
+    private func animate() {
+        let animator1 = UIViewPropertyAnimator(duration: 1.25, curve: .easeInOut) {
+            self.stackLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        
+        animator1.startAnimation()
     }
 }
