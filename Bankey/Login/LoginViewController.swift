@@ -65,12 +65,14 @@ extension LoginViewController {
         titleImage.translatesAutoresizingMaskIntoConstraints = false
         titleImage.contentMode  = .scaleAspectFit
         titleImage.image = UIImage(named: "imageTitle")
+        titleImage.alpha = 0
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.textAlignment = .center
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         subtitleLabel.adjustsFontForContentSizeCategory = true
         subtitleLabel.numberOfLines = 0
+        subtitleLabel.alpha = 0.5
         subtitleLabel.text = "Ваше единственное приложение для всех банковских услуг!"
         
         loginView.translatesAutoresizingMaskIntoConstraints = false
@@ -152,11 +154,20 @@ extension LoginViewController {
 
 extension LoginViewController {
     private func animate() {
-        let animator1 = UIViewPropertyAnimator(duration: 1.25, curve: .easeInOut) {
+        
+        let duration = 2.0
+        
+        let animator1 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             self.stackLeadingAnchor?.constant = self.leadingEdgeOnScreen
             self.view.layoutIfNeeded()
         }
-        
         animator1.startAnimation()
+        
+        let animator2 = UIViewPropertyAnimator(duration: duration * 2, curve: .easeInOut) {
+            self.titleImage.alpha = 1
+            self.subtitleLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+        animator2.startAnimation(afterDelay: 2.0)
     }
 }
