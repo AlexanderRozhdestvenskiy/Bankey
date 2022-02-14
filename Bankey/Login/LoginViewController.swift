@@ -156,7 +156,7 @@ extension LoginViewController {
         animation.keyPath = "position.x"
         animation.values = [0, 10, -10, 10, 0]
         animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
-        animation.duration = 0.4
+        animation.duration = 0.25
         
         animation.isAdditive = true
         signInButton.layer.add(animation, forKey: "snake")
