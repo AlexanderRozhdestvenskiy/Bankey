@@ -132,15 +132,15 @@ extension LoginViewController {
             return
         }
         
-//        if username.isEmpty || password.isEmpty {
-//            configureView(withMessage: "Username / password cannot be blank")
-//        }
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage: "Неправильный логин/пароль")
+        }
         
-        if username == "" && password == "" {
+        if username == "Alex" && password == "Rozh" {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
         } else {
-            configureView(withMessage: "Неправильный логин или пароль")
+            configureView(withMessage: "Неправильный логин/пароль")
         }
     }
     
@@ -150,12 +150,12 @@ extension LoginViewController {
     }
 }
 
-    // MARK: - Animations
+// MARK: Animations
 
 extension LoginViewController {
     private func animate() {
         
-        let duration = 2.0
+        let duration = 1.5
         
         let animator1 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             self.stackLeadingAnchor?.constant = self.leadingEdgeOnScreen
