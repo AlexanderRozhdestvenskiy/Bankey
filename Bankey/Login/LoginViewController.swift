@@ -168,7 +168,7 @@ extension LoginViewController {
 extension LoginViewController {
     private func animate() {
         
-        let duration = 1.5
+        let duration = 1.0
         
         let animator1 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             self.stackLeadingAnchor?.constant = self.leadingEdgeOnScreen
@@ -181,6 +181,6 @@ extension LoginViewController {
             self.subtitleLabel.alpha = 1
             self.view.layoutIfNeeded()
         }
-        animator2.startAnimation(afterDelay: 2.0)
+        animator2.startAnimation(afterDelay: 1.0)
     }
 }
