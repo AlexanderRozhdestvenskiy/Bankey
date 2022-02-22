@@ -18,6 +18,7 @@
 		896639C727BBA94300C379DD /* UIViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896639C627BBA94300C379DD /* UIViewUtil.swift */; };
 		8975C4BC278C64ED004528B8 /* OnboardContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975C4BB278C64ED004528B8 /* OnboardContainerVC.swift */; };
 		8975C4BE278C77B7004528B8 /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975C4BD278C77B7004528B8 /* OnboardVC.swift */; };
+		8980D16127C4E62E001D8300 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980D16027C4E62E001D8300 /* Date+Utils.swift */; };
 		898E1AB827B26B4D006385B1 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E1AB727B26B4D006385B1 /* NotificationName.swift */; };
 		898E1ABA27B26EB3006385B1 /* SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E1AB927B26EB3006385B1 /* SecureToggle.swift */; };
 		898EDE9C27A69D6F00D7309E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EDE9B27A69D6F00D7309E /* Model.swift */; };
@@ -56,6 +57,7 @@
 		896639C627BBA94300C379DD /* UIViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtil.swift; sourceTree = "<group>"; };
 		8975C4BB278C64ED004528B8 /* OnboardContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContainerVC.swift; sourceTree = "<group>"; };
 		8975C4BD278C77B7004528B8 /* OnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
+		8980D16027C4E62E001D8300 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		898E1AB727B26B4D006385B1 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		898E1AB927B26EB3006385B1 /* SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureToggle.swift; sourceTree = "<group>"; };
 		898EDE9B27A69D6F00D7309E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				898E1AB727B26B4D006385B1 /* NotificationName.swift */,
 				898E1AB927B26EB3006385B1 /* SecureToggle.swift */,
 				896639C627BBA94300C379DD /* UIViewUtil.swift */,
+				8980D16027C4E62E001D8300 /* Date+Utils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				891D4C37279737DA005D5A8B /* AccountSummaryViewController.swift in Sources */,
 				890032F1278EE8A60098661F /* UIViewControllerUtil.swift in Sources */,
 				898E1ABA27B26EB3006385B1 /* SecureToggle.swift in Sources */,
+				8980D16127C4E62E001D8300 /* Date+Utils.swift in Sources */,
 				8975C4BC278C64ED004528B8 /* OnboardContainerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
