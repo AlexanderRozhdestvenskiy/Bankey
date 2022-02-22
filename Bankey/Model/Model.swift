@@ -9,10 +9,10 @@ import UIKit
 
 let appColor: UIColor = .systemTeal
 
-struct Profile {
-    let firstName: String
-    let lastName: String
-}
+//struct Profile {
+//    let firstName: String
+//    let lastName: String
+//}
 
 enum AccountType: String {
     case Banking = "Сбережения"
