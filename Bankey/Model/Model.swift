@@ -9,23 +9,10 @@ import UIKit
 
 let appColor: UIColor = .systemTeal
 
-//struct Profile {
-//    let firstName: String
-//    let lastName: String
-//}
-
-enum AccountType: String {
-    case Banking = "Сбережения"
-    case CreditCard = "Кредитные карты"
-    case Investment = "Инвестиции"
+enum AccountType: String, Codable {
+    case Banking
+    case CreditCard
+    case Investment
 }
 
-struct ViewModel {
-    let accountType: AccountType
-    let accountName: String
-    let balance: Decimal
-    
-    var balanceAsAttributedString: NSAttributedString {
-        return CurrencyFormatter().makeAttributedCurrency(balance)
-    }
-}
+
