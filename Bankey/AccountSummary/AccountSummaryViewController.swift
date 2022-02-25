@@ -38,7 +38,6 @@ extension AccountSummaryViewController {
     private func setup() {
         setupTableView()
         setupTableHeaderView()
-//        fetchAccounts()
         fetchDataAndLoadView()
     }
     

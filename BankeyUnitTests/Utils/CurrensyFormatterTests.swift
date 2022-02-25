@@ -5,7 +5,6 @@
 //  Created by Alexander Rozhdestvenskiy on 05.02.2022.
 //
 
-import Foundation
 import XCTest
 
 @testable import Bankey
