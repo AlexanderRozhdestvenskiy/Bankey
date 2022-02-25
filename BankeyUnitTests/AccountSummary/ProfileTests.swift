@@ -13,9 +13,9 @@ class ProfileTests: XCTestCase {
     
     let json = """
     {
-    "id": "1",
-    "first_name": "Kevin",
-    "last_name": "Flynn"
+        "id": "1",
+        "first_name": "Kevin",
+        "last_name": "Flynn"
     }
     """
     

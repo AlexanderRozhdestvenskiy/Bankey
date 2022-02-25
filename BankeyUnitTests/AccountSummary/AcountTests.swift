@@ -49,7 +49,11 @@ class AccountTests: XCTestCase {
         XCTAssertEqual(result[0].name, "Basic Saving")
         XCTAssertEqual(result[0].amount, 929466.23)
         XCTAssertEqual(result[0].createdDateTime.monthDayYearString, "21 июня, 2010")
+        
+        XCTAssertEqual(result[1].id, "2")
+        XCTAssertEqual(result[1].type, .Banking)
+        XCTAssertEqual(result[1].name, "No-Fee All-in Chequing")
+        XCTAssertEqual(result[1].amount, 17562.44)
+        XCTAssertEqual(result[1].createdDateTime.monthDayYearString, "21 июня, 2011")
     }
-    
-    
 }
