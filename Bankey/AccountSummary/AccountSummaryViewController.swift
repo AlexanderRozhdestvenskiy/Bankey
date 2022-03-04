@@ -22,6 +22,8 @@ class AccountSummaryViewController: UIViewController {
     var tableView = UITableView()
     let refreshControl = UIRefreshControl()
     
+    var isLoaded = false
+    
     lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logoutTapped))
         barButtonItem.tintColor = .label
@@ -41,7 +43,15 @@ extension AccountSummaryViewController {
         setupTableView()
         setupTableHeaderView()
         setupRefreshControl()
+        setupSkeleton()
         fetchData()
+    }
+    
+    private func setupSkeleton() {
+        let row = Account.makeSkeleton()
+        accounts = Array(repeating: row, count: 10)
+        
+        configureTableCells(with: accounts)
     }
     
     private func setupTableView() {
@@ -51,6 +61,7 @@ extension AccountSummaryViewController {
         tableView.dataSource = self
         
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseID)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseID)
         tableView.rowHeight = AccountSummaryCell.rowHeight
         tableView.tableFooterView = UIView()
         
