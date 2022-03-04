@@ -94,13 +94,20 @@ extension AccountSummaryViewController {
 }
 
 extension AccountSummaryViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard !accountCellViewModels.isEmpty else { return UITableViewCell() }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseID, for: indexPath) as! AccountSummaryCell
         let account = accountCellViewModels[indexPath.row]
-        cell.configure(with: account)
+        
+        if isLoaded {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseID, for: indexPath) as! AccountSummaryCell
+            cell.configure(with: account)
+            
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseID, for: indexPath) as! SkeletonCell
         
         return cell
     }
@@ -111,6 +118,7 @@ extension AccountSummaryViewController: UITableViewDataSource {
 }
 
 extension AccountSummaryViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -149,6 +157,7 @@ extension AccountSummaryViewController {
         }
         
         group.notify(queue: .main) {
+            self.isLoaded = true
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }
