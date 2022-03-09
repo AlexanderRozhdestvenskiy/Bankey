@@ -138,7 +138,12 @@ extension AccountSummaryViewController {
             case .success(let profile):
                 self.profile = profile
             case .failure(let error):
-                print(error.localizedDescription)
+                switch error {
+                case .decodingError:
+                    self.showErrorAlert(title: "Decoding Error", message: "Ошибка обработки данных")
+                case .serverError:
+                    self.showErrorAlert(title: "Server Error", message: "Проверьте наличие сети")
+                }
             }
             group.leave()
         }
@@ -177,6 +182,13 @@ extension AccountSummaryViewController {
         accountCellViewModels = accounts.map {
             AccountSummaryCell.ViewModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
         }
+    }
+    
+    private func showErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
