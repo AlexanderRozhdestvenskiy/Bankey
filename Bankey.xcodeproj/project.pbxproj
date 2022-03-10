@@ -31,6 +31,7 @@
 		898EDE9E27A69F4800D7309E /* DecimalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EDE9D27A69F4800D7309E /* DecimalUtil.swift */; };
 		898EDEA027A69FEB00D7309E /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EDE9F27A69FEB00D7309E /* CurrencyFormatter.swift */; };
 		89A3D99B27BA5238004448C8 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3D99A27BA5238004448C8 /* ShakeyBellView.swift */; };
+		89B35DD327DA09F9004A3C41 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B35DD227DA09F9004A3C41 /* ProfileManager.swift */; };
 		89B83074278B4F8E0004456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B83073278B4F8E0004456A /* AppDelegate.swift */; };
 		89B83078278B4F8E0004456A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B83077278B4F8E0004456A /* LoginViewController.swift */; };
 		89B8307D278B4F910004456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B8307C278B4F910004456A /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		898EDE9D27A69F4800D7309E /* DecimalUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtil.swift; sourceTree = "<group>"; };
 		898EDE9F27A69FEB00D7309E /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		89A3D99A27BA5238004448C8 /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
+		89B35DD227DA09F9004A3C41 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		89B83070278B4F8E0004456A /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B83073278B4F8E0004456A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B83077278B4F8E0004456A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				8980D16227C4EADA001D8300 /* Networking.swift */,
 				89B23950279D5F75006842BD /* Header */,
 				89B23951279D5F95006842BD /* Cell */,
+				89B35DD127DA09DA004A3C41 /* Networking */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -219,6 +222,14 @@
 				8971EEDC27D0CB7C00146FB2 /* SkeletonCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		89B35DD127DA09DA004A3C41 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				89B35DD227DA09F9004A3C41 /* ProfileManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		89B83067278B4F8E0004456A = {
@@ -410,6 +421,7 @@
 				891D4C37279737DA005D5A8B /* AccountSummaryViewController.swift in Sources */,
 				890032F1278EE8A60098661F /* UIViewControllerUtil.swift in Sources */,
 				898E1ABA27B26EB3006385B1 /* SecureToggle.swift in Sources */,
+				89B35DD327DA09F9004A3C41 /* ProfileManager.swift in Sources */,
 				8980D16127C4E62E001D8300 /* Date+Utils.swift in Sources */,
 				8975C4BC278C64ED004528B8 /* OnboardContainerVC.swift in Sources */,
 			);
