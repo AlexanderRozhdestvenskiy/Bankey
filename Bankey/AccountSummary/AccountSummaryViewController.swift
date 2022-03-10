@@ -138,12 +138,7 @@ extension AccountSummaryViewController {
             case .success(let profile):
                 self.profile = profile
             case .failure(let error):
-                switch error {
-                case .decodingError:
-                    self.showErrorAlert(title: "Decoding Error", message: "Ошибка обработки данных")
-                case .serverError:
-                    self.showErrorAlert(title: "Server Error", message: "Проверьте наличие сети")
-                }
+                self.displayError(error)
             }
             group.leave()
         }
@@ -154,7 +149,7 @@ extension AccountSummaryViewController {
             case .success(let accounts):
                 self.accounts = accounts
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayError(error)
             }
             group.leave()
         }
@@ -181,6 +176,15 @@ extension AccountSummaryViewController {
     private func configureTableCells(with accounts: [Account]) {
         accountCellViewModels = accounts.map {
             AccountSummaryCell.ViewModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
+        }
+    }
+    
+    private func displayError(_ error: NetworkError) {
+        switch error {
+        case .decodingError:
+            self.showErrorAlert(title: "Ошибка данных", message: "Ошибка обработки данных")
+        case .serverError:
+            self.showErrorAlert(title: "Ошибка сети", message: "Проверьте наличие сети")
         }
     }
     
